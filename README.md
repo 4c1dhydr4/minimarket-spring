@@ -1,4 +1,4 @@
-Proyecto realizado con el Framework de *Java* **Spring** bajo el patrón DAO. con el proósito de generar una plataforma de ventas para un minimarket.
+Proyecto realizado con el Framework de *Java* **Spring** bajo el patrón DAO. con el propósito de generar una plataforma de ventas para un minimarket.
 
 Instrucciones:
 	1.- Correr el script database_script.sql en SQLServer
