@@ -1,0 +1,1 @@
+SELECT idClient, ClientCode, FirstName, LastName, RegisterDate, Discontinued FROM Client WHERE Discontinued='N';

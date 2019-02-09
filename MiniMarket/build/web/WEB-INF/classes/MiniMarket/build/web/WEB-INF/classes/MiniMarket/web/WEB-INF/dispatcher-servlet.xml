@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- was: <?xml version="1.0" encoding="UTF-8"?> -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
+
+    <bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping"/>
+
+    <!--
+    Most controllers will use the ControllerClassNameHandlerMapping above, but
+    for the index controller we are using ParameterizableViewController, so we must
+    define an explicit mapping for it.
+    -->
+    <bean id="urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+        <property name="mappings">
+            <props>
+                <prop key="Login.htm">LogInController</prop>
+                <prop key="index.htm">indexController</prop>
+                <!--Users-->
+                <prop key="UserHome.htm">HomeUsersController</prop>
+                <prop key="UserEdit.htm">EditUsersController</prop>
+                <prop key="UserAdd.htm">AddUsersController</prop>
+                <prop key="UserDelete.htm">DeleteUsersController</prop>
+                <!--/Users-->
+                <!--Clients-->
+                <prop key="ClientHome.htm">HomeClientsController</prop>
+                <prop key="ClientEdit.htm">EditClientsController</prop>
+                <prop key="ClientAdd.htm">AddClientsController</prop>
+                <prop key="ClientDelete.htm">DeleteClientsController</prop>
+                <!--/Clients-->
+                <!--Products-->
+                <prop key="ProductHome.htm">HomeProductsController</prop>
+                <prop key="ProductEdit.htm">EditProductsController</prop>
+                <prop key="ProductAdd.htm">AddProductsController</prop>
+                <prop key="ProductDelete.htm">DeleteProductsController</prop>
+                <!--/Products-->
+                <!--Sales-->
+                <prop key="SaleHome.htm">HomeSalesController</prop>
+                <prop key="SaleEdit.htm">EditSalesController</prop>
+                <prop key="SaleAdd.htm">AddSalesController</prop>
+                <prop key="SaleDelete.htm">DeleteSalesController</prop>
+                <prop key="SaleDetail.htm">DetailSalesController</prop>
+                <!--/Sales-->
+            </props>
+        </property>
+    </bean>
+
+    <bean id="viewResolver"
+          class="org.springframework.web.servlet.view.InternalResourceViewResolver"
+          p:prefix="/WEB-INF/jsp/"
+          p:suffix=".jsp" />
+
+    <bean name="indexController"
+          class="org.springframework.web.servlet.mvc.ParameterizableViewController"
+          p:viewName="index" />
+    
+    <!--Users-->
+     <bean name = "LogInController" class = "com.controller.LogInController" />
+     <bean name = "HomeUsersController" class = "com.controller.HomeUsersController" />
+     <bean name = "EditUsersController" class = "com.controller.EditUsersController" />
+     <bean name = "AddUsersController" class = "com.controller.AddUsersController" />
+     <bean name = "DeleteUsersController" class = "com.controller.DeleteUsersController" />
+     <!--/Users-->
+    <!--Clients-->
+     <bean name = "HomeClientsController" class = "com.controller.HomeClientsController" />
+     <bean name = "EditClientsController" class = "com.controller.EditClientsController" />
+     <bean name = "AddClientsController" class = "com.controller.AddClientsController" />
+     <bean name = "DeleteClientsController" class = "com.controller.DeleteClientsController" />
+     <!--/Clients-->
+    <!--Products-->
+     <bean name = "HomeProductsController" class = "com.controller.HomeProductsController" />
+     <bean name = "EditProductsController" class = "com.controller.EditProductsController" />
+     <bean name = "AddProductsController" class = "com.controller.AddProductsController" />
+     <bean name = "DeleteProductsController" class = "com.controller.DeleteProductsController" />
+     <!--/Products-->
+    <!--Sales-->
+     <bean name = "HomeSalesController" class = "com.controller.HomeSalesController" />
+     <bean name = "EditSalesController" class = "com.controller.EditSalesController" />
+     <bean name = "AddSalesController" class = "com.controller.AddSalesController" />
+     <bean name = "DeleteSalesController" class = "com.controller.DeleteSalesController" />
+     <bean name = "DetailSalesController" class = "com.controller.DetailSalesController" />
+     <!--/Sales-->
+</beans>
